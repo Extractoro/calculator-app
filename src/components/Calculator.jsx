@@ -12,19 +12,29 @@ const Calculator = () => {
     }
   };
 
-  const handleBackspaceLast = (e) => {
+  const handleClearAll = () => {
+    setValue("");
+  };
+
+  const handleBackspaceLast = () => {
     const tmp = value.split("");
-    let operator;
+    let operator = null;
 
     if (tmp.includes("+")) {
-      operator = tmp.findIndex("+");
+      operator = tmp.indexOf("+");
     } else if (tmp.includes("-")) {
-      operator = tmp.findIndex("-");
+      operator = tmp.indexOf("-");
     } else if (tmp.includes("*")) {
-      operator = tmp.findIndex("*");
+      operator = tmp.indexOf("*");
     } else if (tmp.includes("/")) {
-      operator = tmp.findIndex("/");
+      operator = tmp.indexOf("/");
+    }
+
+    if (operator === null) {
+      setValue("");
     } else {
+      tmp.splice(operator + 1, tmp.length - 1);
+      setValue(tmp.join(""));
     }
   };
 
@@ -42,8 +52,6 @@ const Calculator = () => {
     setValue(tmp.join(""));
   };
 
-  console.log(value);
-
   return (
     <div className="px-10 max-w-screen-sm mx-auto">
       <div className="bg-gray-700 text-white w-full flex justify-start items-center h-20 p-5 font-normal text-3xl ">
@@ -58,7 +66,9 @@ const Calculator = () => {
             </button>
           </li>
           <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
-            <button type="button">C</button>
+            <button onClick={handleClearAll} type="button">
+              C
+            </button>
           </li>
           <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
             <button onClick={handleBackspace} type="button">
