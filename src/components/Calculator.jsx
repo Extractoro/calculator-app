@@ -42,7 +42,6 @@ const Calculator = () => {
     if (value.length === 0) return;
     const tmp = value.split("");
     tmp.pop();
-    console.log(tmp);
     setValue(tmp.join(""));
   };
 
@@ -59,7 +58,6 @@ const Calculator = () => {
       </div>
       <div className="bg-orange-600 text-white w-full h-80">
         <ul className="grid grid-cols-4 justify-items-center items-center h-full">
-          <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded "></li>
           <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
             <button onClick={handleBackspaceLast} type="button">
               CE
@@ -76,17 +74,6 @@ const Calculator = () => {
             </button>
           </li>
 
-          <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
-            <button type="button">1/x</button>
-          </li>
-          <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
-            <button type="button">
-              x<sup>2</sup>
-            </button>
-          </li>
-          <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
-            <button type="button">&#8730;x</button>
-          </li>
           <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
             <button onClick={(e) => handleValueChange(e)} type="button">
               /
@@ -152,9 +139,7 @@ const Calculator = () => {
               +
             </button>
           </li>
-          <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
-            <button type="button">+/-</button>
-          </li>
+          <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300"></li>
           <li className="flex bg-orange-700 justify-center items-center w-5/6 h-5/6 rounded hover:bg-orange-900 transition-all duration-300">
             <button onClick={(e) => handleValueChange(e)} type="button">
               0
